@@ -11,6 +11,15 @@ import com.srini.learning.design.patterns.structural.decorator.example.SimpleSan
  * @see <a href="https://github.com/srinivaschannakeshava">github</a>
  */
 public class DecoratorPattern {
+    /**
+     * Decorator pattern is an hierarchical pattern that builds functionality at each level.
+     * It uses Composition and inheritance from similar datatypes.
+     * - DP is also called as Wrapper pattern
+     * - Adds behaviour without affecting others
+     * -
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Sandwich customSandwich = new CheeseDecorator(new MeatDecorator(new SimpleSandwich()));
         System.out.println(customSandwich.make());
