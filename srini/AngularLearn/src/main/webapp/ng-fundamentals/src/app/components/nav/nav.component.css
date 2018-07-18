@@ -1,0 +1,8 @@
+.nav,
+.navbar-nav {
+  font-size: 15px;
+}
+
+li.active>a {
+  background-color: orange;
+}
