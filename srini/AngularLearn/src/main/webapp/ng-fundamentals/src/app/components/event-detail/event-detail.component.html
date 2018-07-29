@@ -3,18 +3,18 @@
 
   <div class="row">
     <div class="col-md-11">
-      <h2>{{event?.name}} </h2>
+      <h2>{{event?.name|uppercase}} </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
       <div>
-        <strong>Date:</strong> {{event?.date}}</div>
+        <strong>Date:</strong> {{event?.date|date:'shortDate'}}</div>
       <div>
         <strong>Time:</strong> {{event?.time}}</div>
       <div>
-        <strong>Price:</strong> ${{event?.price}}</div>
+        <strong>Price:</strong> {{event?.price|currency:'INR'}}</div>
     </div>
     <div class="col-md-6">
       <address>
@@ -24,4 +24,26 @@
       </address>
     </div>
   </div>
+  <hr>
+  <div class='row'>
+    <div class='col-md-3'>
+      <input class="btn btn-default pull-left" name="viewSession" value="Sessions" (click)='createSessionMode=false'>
+    </div>
+    <div class='col-md-2'>
+      <button class="btn btn-sm btn-default" [class.active]="sortType=='name'" (click)='sortType="name"'>By Name</button>
+      <button class="btn btn-sm btn-default" [class.active]="sortType=='vote'" (click)='sortType="vote"'>By Votes</button>
+
+    </div>
+    <div class='col-md-4'>
+      <button class="btn btn-sm btn-default" [class.active]="filterType=='all'" (click)='filterType="all"'>All</button>
+      <button class="btn btn-sm btn-default" [class.active]="filterType=='beginner'" (click)='filterType="beginner"'>Beginner</button>
+      <button class="btn btn-sm btn-default" [class.active]="filterType=='intermediate'" (click)='filterType="intermediate"'>Intermediate</button>
+      <button class="btn btn-sm btn-default" [class.active]="filterType=='advanced'" (click)='filterType="advanced"'>Advanced</button>
+    </div>
+    <div class='col-md-3'>
+      <input class="btn btn-default pull-right" name="createSession" value="Add Session" (click)='createSessionMode=true ' style="margin-bottom: 10px;">
+    </div>
+  </div>
+  <app-session-list *ngIf='!createSessionMode ' [sessions]='event?.sessions' [filterType]='filterType' [sortType]='sortType'></app-session-list>
+  <app-create-session *ngIf='createSessionMode ' [eventId]='event?.id ' (saveEventEmit)='sessionCreated($event) '></app-create-session>
 </div>

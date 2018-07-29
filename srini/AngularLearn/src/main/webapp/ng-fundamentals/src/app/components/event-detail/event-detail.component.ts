@@ -9,9 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 export class EventDetailComponent implements OnInit {
   event: any;
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
-
+  createSessionMode: boolean;
+  sortType = 'name';
+  filterType = 'all';
   ngOnInit() {
     this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+  }
+
+  sessionCreated(eventEmmited) {
+    this.createSessionMode = false;
   }
 
 }

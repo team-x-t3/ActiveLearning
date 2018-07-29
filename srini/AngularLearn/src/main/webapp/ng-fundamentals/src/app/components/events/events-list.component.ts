@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { RouterModule, Router } from '../../../../node_modules/@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { Observable } from '../../../../node_modules/rxjs';
+import { IEvent } from '../../models/event.model';
 
 @Component({
     selector: 'app-event-list',
@@ -8,9 +10,9 @@ import { RouterModule, Router } from '../../../../node_modules/@angular/router';
 })
 export class EventListComponent implements OnInit {
     private count = 0;
-    eventList: any[];
+    eventList: IEvent[];
 
-    constructor(private eventService: EventService, private router: Router) {
+    constructor(private eventService: EventService, private router: Router, private route: ActivatedRoute) {
 
     }
     catchClickEvent(data): void {
@@ -19,7 +21,8 @@ export class EventListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.eventList = this.eventService.getEvents();
+        // this.eventService.getEvents().subscribe(events => this.eventList = events);
+        this.eventList = this.route.snapshot.data['events'];
     }
     handleClick(event) {
         this.router.navigate(['events', event.id]);
