@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-event-detail',
   templateUrl: './event-detail.component.html',
@@ -13,7 +13,9 @@ export class EventDetailComponent implements OnInit {
   sortType = 'name';
   filterType = 'all';
   ngOnInit() {
-    this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    this.route.params.forEach((params: Params) => {
+      this.event = this.eventService.getEvent(+params['id']);
+    });
   }
 
   sessionCreated(eventEmmited) {

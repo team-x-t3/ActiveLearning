@@ -27,7 +27,7 @@ export class SessionListComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     console.log('ngOnchages session list');
-    console.log(this.filterType);
+    console.log(this.filterType, this.sessions);
     this.filterBy(this.filterType);
     this.sortType === 'name' ? this.sortFiltSessions.sort(sortByNameAsc) : this.sortFiltSessions.sort(sortByVotesDsc);
   }
