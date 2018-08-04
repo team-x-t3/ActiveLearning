@@ -4,6 +4,7 @@ import {
 import {
   NgModule
 } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   EventListComponent,
@@ -20,7 +21,6 @@ import {
 import {
   AppRoute
 } from './routes/app.routes';
-import { UserModule } from './modules/user/user.module';
 import { SessionListComponent } from './components/session-list/session-list.component';
 import { CollapsibleWellComponent } from './components/common/collapsible-well/collapsible-well.component';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
@@ -48,7 +48,8 @@ declare let jQuery: Object;
     ModalTriggerDirective
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(AppRoute)
+    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(AppRoute),
+    HttpClientModule
   ],
   providers: [{
     provide: JQ_TOKEN,

@@ -2,7 +2,7 @@ import { CanActivate, ActivatedRouteSnapshot, Router } from "../../../node_modul
 import { EventService } from "../services/event.service";
 import { Injectable } from "../../../node_modules/@angular/core";
 import { AuthService } from "../services/auth.service";
-@Injectable({
+/* @Injectable({
     providedIn: 'root'
 })
 export class EventRouteActivate implements CanActivate {
@@ -15,7 +15,7 @@ export class EventRouteActivate implements CanActivate {
         return eventExist;
 
     }
-}
+} */
 @Injectable({
     providedIn: 'root'
 })
