@@ -1,0 +1,22 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="isSmallScreen()?'side':'over'" [opened]='isSmallScreen()' class='sidenav mat-elevation-z4'>
+    <mat-toolbar color='primary'>
+      <span>Contact List</span>
+    </mat-toolbar>
+    <mat-list>
+      <mat-list-item>item</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>item</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>item</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>item</mat-list-item>
+      <mat-divider></mat-divider>
+
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content class='sidenav-content'>
+    <app-tool-bar (toggleContactListEvent)="sidenav.toggle()"></app-tool-bar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
