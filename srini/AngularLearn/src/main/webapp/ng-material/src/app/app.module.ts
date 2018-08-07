@@ -14,6 +14,7 @@ import {
   AppComponent
 } from './app.component';
 import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 const routes: Routes = [{
   path: 'contactmanager',
@@ -30,6 +31,7 @@ const routes: Routes = [{
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
